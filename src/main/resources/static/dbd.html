@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor's Dashboard</title>
+    <link rel="shortcut icon" href="assets/images/common/fav.png" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <link rel="stylesheet" href="assets/css/dstyles.css" />
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/images/common/logo.png" alt="Company Logo" />
+      </div>
+      <div class="welcome">Welcome Doctor</div>
+      <div class="logout">
+        <a href="index.html">Logout</a>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li><a href="dbd.html">Dashboard</a></li>
+          <li><a href="testd.html">Tests</a></li>
+          <li><a href="doctord.html">Doctor</a></li>
+          <li><a href="/doctors">Booking History</a></li>
+          <!-- Add more sidebar items as needed -->
+        </ul>
+      </aside>
+
+      <section class="content aj">
+        <div class="chart-container">
+          <h3>Welcome to your Doctor's Dashboard</h3>
+          <br />
+          <canvas
+            id="mixedChart"
+            width="150"
+            height="120"
+            class="chart"
+          ></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="pieChart" width="100" height="100" class="chart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Modified sample data for doctor's dashboard
+      var mixedChartData = {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
+        datasets: [
+          {
+            type: "bar",
+            label: "Monthly Test Bookings",
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+            data: [50, 75, 120, 90, 110, 80, 100, 130, 140, 160, 120, 100],
+          },
+          {
+            type: "line",
+            label: "Monthly Test Average",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth: 2,
+            fill: false,
+            data: [30, 60, 87, 78, 100, 67, 96, 128, 125, 109, 110, 90],
+          },
+        ],
+      };
+
+      // Create mixed chart
+      new Chart(document.getElementById("mixedChart").getContext("2d"), {
+        type: "bar",
+        data: mixedChartData,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      var pieChartData = {
+        labels: [
+          "Vitamin D",
+          "Vitamin B12",
+          "Vitamin E",
+          "Vitamin C",
+          "Liver Function Test",
+          "Hemoglobin Test",
+          "Cancer Marker Test",
+          "CBC",
+          "Lipid Test",
+          "Diabetes Test",
+        ],
+        datasets: [
+          {
+            data: [15, 10, 8, 7, 12, 20, 5, 18, 15, 10],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.8)", // Adjusted transparency
+              "rgba(54, 162, 235, 0.8)",
+              "rgba(255, 206, 86, 0.8)",
+              "rgba(75, 192, 192, 0.8)",
+              "rgba(153, 102, 255, 0.8)",
+              "rgba(255, 159, 64, 0.8)",
+              "rgba(255, 0, 0, 0.8)",
+              "rgba(0, 255, 0, 0.8)",
+              "rgba(255, 255, 0, 0.8)",
+              "rgba(128, 0, 128, 0.8)",
+            ],
+          },
+        ],
+      };
+
+      // Create pie chart
+      new Chart(document.getElementById("pieChart").getContext("2d"), {
+        type: "pie",
+        data: pieChartData,
+      });
+
+      function createMiniPieChart(chartId, data, backgroundColor) {
+        new Chart(document.getElementById(chartId).getContext("2d"), {
+          type: "doughnut",
+          data: {
+            labels: ["", ""],
+            datasets: [
+              {
+                data: data,
+                backgroundColor: backgroundColor,
+              },
+            ],
+          },
+          options: {
+            cutout: 70, // Adjust cutout to control the size of the doughnut
+            plugins: {
+              legend: {
+                display: false,
+              },
+            },
+          },
+        });
+      }
+
+      // Create mini pie charts
+      createMiniPieChart("patientsMiniChart", [80, 20], ["#36a2eb", "#fff"]);
+      createMiniPieChart(
+        "cancellationsMiniChart",
+        [70, 30],
+        ["#ff6384", "#fff"]
+      );
+      createMiniPieChart(
+        "consultationsMiniChart",
+        [60, 40],
+        ["#4caf50", "#fff"]
+      );
+
+      // Dynamically update count values using JavaScript
+      document.getElementById("totalPatients").innerText = "256";
+      document.getElementById("totalTestCancellations").innerText = "12";
+      document.getElementById("totalConsultations").innerText = "78";
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        font-family: "Arial", sans-serif;
+      }
+
+      header {
+        color: white;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      main {
+        flex-grow: 1;
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+      }
+
+      .chart-container {
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
+
+      .chart {
+        max-width: 100%;
+        height: auto;
+      }
+      .count-box {
+        background-color: #f3d5d5;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        text-align: center;
+        width: 210px;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 100%;
+        }
+
+        .content {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </body>
+</html>

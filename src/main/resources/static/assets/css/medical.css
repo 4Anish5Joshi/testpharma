@@ -1,0 +1,116 @@
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.cart-icon img {
+  width: 30px; /* Adjust the size as needed */
+}
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.jj {
+  color: white;
+}
+.jjj {
+  color: black;
+}
+
+.container-fluid {
+  padding: 20px;
+}
+.header-nav {
+  background-color: rgb(0, 90, 38);
+}
+
+.sidebar {
+  background-color: rgb(90, 216, 143);
+  padding: 20px;
+  border-right: 1px solid #dfe4ea;
+}
+.cart-icon {
+  background-color: #e0f8e8;
+}
+.sidebar h3 {
+  color: #343a40;
+  padding-left: 25px;
+}
+.imgg {
+  width: 120px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 30px;
+  color: #00893b;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: #00893b;
+}
+
+.main {
+  padding: 20px;
+}
+
+.medicine-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.medicine-item {
+  text-align: center;
+  border: 1px solid #060606;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.2s ease-in-out;
+}
+
+.medicine-item:hover {
+  transform: scale(1.05);
+}
+
+.medicine-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.shopping-cart {
+  margin-left: 630px;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+#cart-items li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dfe4ea;
+  padding-bottom: 5px;
+}
+
+.btn-primary,
+.btn-success {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  background-color: #0056b3;
+}

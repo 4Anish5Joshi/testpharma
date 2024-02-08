@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Doctor's Tests</title>
+
+    <link rel="shortcut icon" href="/assets/images/common/fav.png" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/fontawsom-all.min.css" />
+    <link rel="stylesheet" href="/assets/css/dstyles.css" />
+
+    <style>
+      .content table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .content table th,
+      .content table td {
+        padding: 5px;
+        border: 1.5px solid #000000;
+      }
+
+      .content table th {
+        background-color: #f2f2f2;
+      }
+
+      .content {
+        text-align: center;
+        padding-top: 40px; /* Keep the initial padding */
+        padding-left: 65px; /* Keep the initial padding */
+        overflow-y: auto; /* Add scrollbar when content exceeds available space */
+        max-height: calc(
+          100vh - 40px
+        ); /* Adjust the maximum height based on sidebar and header */
+      }
+
+      /* Media Queries for responsiveness */
+      @media screen and (max-width: 768px) {
+        /* Adjust styles for tablets and smaller screens */
+        main {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          padding-top: 20px;
+          height: auto;
+        }
+
+        .content {
+          padding-top: 20px; /* Adjust as needed */
+          padding-left: 10px; /* Adjust as needed */
+          max-height: calc(
+            100vh - 20px
+          ); /* Adjust the maximum height for smaller screens */
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        /* Adjust styles for mobile devices */
+        .sidebar ul li a {
+          padding: 8px 10px;
+        }
+
+        .content {
+          padding-top: 80px; /* Adjust as needed */
+          padding-left: 10px; /* Adjust as needed */
+          max-height: calc(
+            100vh - 80px
+          ); /* Adjust the maximum height for mobile devices */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/assets/images/common/logo.png" alt="Company Logo" />
+      </div>
+      <div class="welcome">Welcome, Doctor!</div>
+      <div class="logout">
+        <a href="index.html">Logout</a>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li><a href="/dbd.html">Dashboard</a></li>
+          <li><a href="/testd.html">Tests</a></li>
+          <li><a href="/doctord.html">Doctor</a></li>
+          <li><a href="">Booking History</a></li>
+          <!-- Add more sidebar items as needed -->
+        </ul>
+      </aside>
+
+      <section class="content">
+        <select id="doctorFilter" onchange="filterByDoctor()">
+          <option value="">All Doctors</option>
+          <option value="Dr Manoj Reddy">Dr Manoj Reddy</option>
+          <option value="Dr Neha patel">Dr Neha patel</option>
+          <option value="Dr Aishwarya Menon">Dr Aishwarya Menon</option>
+          <option value="Dr Sneha Sharma">Dr Sneha Sharma</option>
+          <option value="Dr Vikram Malhotra">Dr Vikram Malhotra</option>
+          <option value="Dr Priya Desai">Dr Priya Desai</option>
+        </select>
+        <table>
+          <thead>
+            <tr>
+              <th>Patient Name</th>
+              <th>Patient Phone</th>
+              <th>Test ID</th>
+              <th>Doctor ID</th>
+              <th>Date and Time</th>
+              <th>Prescription Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Your table rows here -->
+            <tr th:each="patient : ${patient}">
+              <td th:text="${patient.fname}"></td>
+              <td th:text="${patient.phone}"></td>
+              <td th:text="${patient.selectedLabTest}"></td>
+              <td th:text="${patient.selectedDoctor}"></td>
+              <td th:text="${patient.datetime}"></td>
+              <td>
+                <!-- Tried with this encoding method but was not able to fetch image -->
+                <!-- th:src="'data:image/jpeg;base64,'+ ${patient.img}" -->
+                <img
+                  th:src="@{/assets/images/p/p1.jpg}"
+                  alt="Prescription Image"
+                  style="max-width: 125px; max-height: 125px"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <script>
+          function filterByDoctor() {
+            var selectedDoctor = document.getElementById("doctorFilter").value;
+            var rows = document.querySelectorAll(".content table tbody tr");
+
+            rows.forEach(function (row) {
+              var doctorCell = row.querySelector("td:nth-child(4)");
+              if (doctorCell) {
+                var doctorName = doctorCell.textContent.trim();
+                if (selectedDoctor === "" || doctorName === selectedDoctor) {
+                  row.style.display = "";
+                } else {
+                  row.style.display = "none";
+                }
+              }
+            });
+          }
+        </script>
+      </section>
+    </main>
+  </body>
+</html>

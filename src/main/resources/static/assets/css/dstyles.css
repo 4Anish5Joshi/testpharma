@@ -1,0 +1,156 @@
+#pieChart {
+  border: rgb(195, 194, 194);
+  border-style: solid;
+  border-radius: 10px;
+}
+
+#mixedChart {
+  border: rgb(195, 194, 194);
+  border-style: solid;
+  border-radius: 10px;
+  padding: 5px;
+}
+/* Reset default styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #00028a;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.welcome {
+  font-size: 18px;
+}
+
+.logout a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  background-color: #e74c3c;
+}
+
+.logout a:hover {
+  background-color: #c0392b;
+}
+
+main {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #021abd;
+  color: #fff;
+  padding-top: 57px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #01305b;
+}
+
+.sidebar-logout {
+  margin-top: auto;
+}
+
+.sidebar-logout a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0px 15px;
+  border-radius: 5px;
+  display: block;
+}
+
+.sidebar-logout a:hover {
+  background-color: #c0392b;
+}
+
+.content {
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 65px;
+}
+
+.chart-container {
+  margin: 4px;
+  border-style: solid;
+  border: black;
+}
+
+.aj {
+  background-color: rgb(228, 231, 255);
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for tablets and smaller screens */
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-top: 20px;
+    height: auto;
+  }
+
+  .content {
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Adjust styles for mobile devices */
+  .sidebar ul li a {
+    padding: 8px 10px;
+  }
+
+  .content {
+    padding-top: 80px;
+    padding-left: 10px;
+  }
+}

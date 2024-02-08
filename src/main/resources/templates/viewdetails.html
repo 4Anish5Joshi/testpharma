@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Patient Details</title>
+    <!-- Add your CSS links and stylesheets here -->
+    <link rel="shortcut icon" href="/assets/images/common/fav.png" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/fontawsom-all.min.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <style>
+      .patient-details {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .patient-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .patient-info {
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      /* Media Queries for responsiveness */
+      @media screen and (max-width: 768px) {
+        .patient-details {
+          padding: 10px;
+        }
+
+        .patient-details h4 {
+          font-size: 1.5em;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .patient-details {
+          padding: 5px;
+        }
+
+        .patient-details h4 {
+          font-size: 1.2em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/assets/images/common/logo.png" alt="Company Logo" />
+      </div>
+      <div class="welcome">Welcome, Admin!</div>
+      <div class="logout">
+        <a href="index.html">Logout</a>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li><a href="db.html">Dashboard</a></li>
+          <li><a href="test.html">Tests</a></li>
+          <li><a href="doctor.html">Doctor</a></li>
+          <li><a href="/patient">Booking History</a></li>
+          <!-- Add more sidebar items as needed -->
+        </ul>
+      </aside>
+
+      <section class="patient-details">
+        <div class="rows">
+          <div class="patient-image">
+            <img
+              th:src="@{/assets/images/p/p1.jpg}"
+              alt="Patient Image"
+              style="max-width: 150px; max-height: 150px"
+            />
+          </div>
+          <br />
+          <div class="patient-info">
+            <h4>Patient Details</h4>
+            <br />
+            <ul>
+              <strong>Name:</strong>
+              <span th:text="${patient.fname}"></span>
+              <br />
+              <strong>Phone:</strong
+              ><span th:text="${patient.phone}"></span>
+              <br />
+              <strong>Selected Lab Test:</strong
+              ><span th:text="${patient.selectedLabTest}"></span>
+              <br />
+              <strong>Selected Doctor:</strong>
+              <span th:text="${patient.selectedDoctor}"></span>
+              <br />
+              <!-- Add more patient details as needed -->
+            </ul>
+            <br />
+            <button class="btn btn-warning">
+              <a href="/patient" style="color: #000000"> Back to patients</a>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

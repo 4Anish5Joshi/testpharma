@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharma Plus Signup</title>
+
+    <link rel="shortcut icon" href="assets/images/common/fav.png" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #29695a;
+      }
+      .container {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        max-width: 80%;
+        width: 400px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 7px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="date"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      h4 {
+        padding: 15px 0 12px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/common/logo.png" alt="Logo" class="logo" />
+      </a>
+
+      <form th:action="@{/signup}" th:object="${signupData}" method="post">
+        <h4>Signup</h4>
+        <input
+          type="text"
+          th:field="*{fullname}"
+          placeholder="Full Name"
+          required
+        /><br />
+        <input
+          type="email"
+          th:field="*{email}"
+          placeholder="Email"
+          required
+        /><br />
+        <input
+          type="text"
+          th:field="*{city}"
+          placeholder="City"
+          required
+        /><br />
+        <input
+          type="password"
+          th:field="*{password}"
+          placeholder="Password"
+          required
+        /><br />
+
+        <input type="submit" value="Sign Up" class="btn-success" />
+      </form>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script>
+      function validateForm() {
+        var fullname = document.getElementById("fullname").value;
+        var email = document.getElementById("email").value;
+        var city = document.getElementById("city").value;
+        var password = document.getElementById("password").value;
+
+        if (fullname === "" || email === "" || city === "" || password === "") {
+          alert("Please fill in all fields.");
+          return false;
+        }
+
+        setTimeout(() => {
+          alert("Account created successfully!");
+          window.location.href = "login.html"; // Redirect to login page
+        }, 1500); // Change this delay time as needed
+
+        return false; // Prevent default form submission
+      }
+    </script>
+  </body>
+</html>

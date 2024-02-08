@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Booking History</title>
+
+    <link rel="shortcut icon" href="assets/images/common/fav.png" />
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <style>
+      .content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      .content table th,
+      .content table td {
+        padding: 8px;
+        border: 1.5px solid #000000;
+      }
+
+      .content table th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/images/common/logo.png" alt="Company Logo" />
+      </div>
+      <div class="welcome">Welcome, Admin!</div>
+      <div class="logout">
+        <a href="index.html">Logout</a>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <ul>
+          <li><a href="db.html">Dashboard</a></li>
+          <li><a href="test.html">Tests</a></li>
+          <li><a href="doctor.html">Doctor</a></li>
+          <li><a href="">Booking History</a></li>
+          <!-- Add more sidebar items as needed -->
+        </ul>
+        <div class="sidebar-logout">
+          <a href="index.html">Logout</a>
+        </div>
+      </aside>
+
+      <section class="content">
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Patient ID</th>
+              <th>Doctor ID</th>
+              <th>Test Date</th>
+              <th>Order Cost</th>
+              <th>Order Img</th>
+              <th>Order Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Your table rows here -->
+            <tr>
+              <td>1</td>
+              <td>AJ</td>
+              <td>99999888888</td>
+              <td>Mumbai</td>
+              <td>Rs 2000/-</td>
+              <td>
+                <img
+                  src="path/to/prescription.jpg"
+                  alt="Prescription"
+                  width="100"
+                />
+              </td>
+              <td>23/11/23</td>
+            </tr>
+            <!-- Add more rows as needed -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

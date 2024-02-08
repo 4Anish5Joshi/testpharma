@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/medical.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="shortcut icon" href="assets/images/common/fav.png" />
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <title>Medical Store</title>
+
+    <style>
+      .sidebar {
+        margin-top: 80px;
+      }
+
+      .main {
+        margin-top: 60px;
+      }
+
+      .col-sm-4{
+        margin-top: 25px;
+      
+      }
+
+      
+      .card-body{
+        text-align: center;
+        
+      }
+      
+      .card{
+        border: 1.2px solid black;
+      }
+
+      .card-text{
+        margin-bottom: 10px;
+        color: rgb(0, 147, 44);
+        font-weight: bold;
+      }
+
+      #proceed-payment{
+        margin-left: 10px;
+      }
+
+      .modal-footer{
+        margin-left: 28px;
+      }
+
+      .modal-title{
+        margin-left: 50px;
+        font-weight:600;
+      }
+
+      .modal-body{
+        margin-left: 12px;
+      }
+
+      #savings, #coupon{
+        color: green;
+      }
+
+      #total{
+        font-weight:bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Header -->
+      <header>
+        <div id="nav-head" class="header-nav">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+                <img
+                  class="imgg"
+                  src="assets/images/common/logo.png"
+                  alt="logo"
+                />
+                <a data-toggle="collapse" data-target="#menu" href="#menu"
+                  ><i class="fas d-block d-md-none small-menu fa-bars"></i
+                ></a>
+              </div>
+              <div
+                id="menu"
+                class="col-lg-8 col-md-9 d-none d-md-block nav-item"
+              >
+                <ul>
+                  <li><a class="jj" href="index.html">Home</a></li>
+                  <li><a class="jj" href="about_us.html">About us</a></li>
+                  <li><a class="jj" href="services.html">Services</a></li>
+                  <li><a class="jj" href="tablet.html">Medicines</a></li>
+                  <li><a class="jj" href="appoint.html">Book Lab test</a></li>
+                  <li><a class="jj" href="/contact">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-2 d-none d-lg-block appoint">
+                <button class="btn btn-success">
+                  <a href="/login" class="dj">Login | Signup</a>
+                </button>
+                <!-- Floating cart icon -->
+                
+              </div>
+              <!-- <a
+                  href="#"
+                  class="btn btn-primary"
+                  onclick="showCart()"
+                  style="position: absolute; top: 0; right: 0"
+                  >Cart (<span id="cart-count">0</span>)</a
+                > -->
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar">
+          <h3>Categories</h3>
+          <br />
+          <br />
+          <ul>
+            <li><a class="jjj" href="tablet.html">Tablets</a></li>
+            <br />
+            <li><a class="jjj" href="duse.html">Daily Use</a></li>
+            <br />
+            <li><a class="jjj" href="">Elderly Care</a></li>
+            <br />
+            <li><a class="jjj" href="">Skin Care</a></li>
+            <br />
+            <li><a class="jjj" href="">Fitness Supplements</a></li>
+            <br />
+            <li><a class="jjj" href="">Healthcare Devices</a></li>
+            <br />
+            <li><a class="jjj" href="">Ayurvedic Care</a></li>
+            <br />
+            <li><a class="jjj" href="">Covid Essentials</a></li>
+            <br />
+            <li><a class="jjj" href="">Mother and Baby Care</a></li>
+            <!-- Add more categories as needed -->
+          </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="col-md-9 main">
+          <!-- Grid of medicines -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/det.jpeg"
+                  class="card-img-top"
+                  alt="Medicine 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Dettol </h5>
+                  <p class="card-text">Price: Rs 289 <s> Rs 300</s></p>
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Dettol', 289, 300)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/com.jpeg"
+                  class="card-img-top"
+                  alt="Medicine 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Comfort 430ml</h5>
+                  
+                  <p class="card-text">Price: Rs 379 <s> Rs 399</s></p>
+                  
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Comfort', 379, 399)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/col.jpg"
+                  class="card-img-top"
+                  alt="Medicine 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Colin</h5>
+                  <p class="card-text">Price: Rs 175 <s> Rs 199</s></p>
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Colin', 175, 199)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/liz.png"
+                  class="card-img-top"
+                  alt="Medicine 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Lizol yellow</h5>
+                  <p class="card-text">Price: Rs 239 <s> Rs 258</s></p>
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Lizol', 239, 258)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/mus.jpeg"
+                  class="card-img-top"
+                  alt="Medicine 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Mr Muscle</h5>
+                  <p class="card-text">Price: Rs 189 <s> Rs 199</s></p>
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Cofsil', 189, 199)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="card">
+                <img
+                  src="assets/images/common/har.jpg"
+                  class="card-img-top"
+                  alt="Medicine 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Harpic</h5>
+                  <p class="card-text">Price: Rs 187 <s> Rs 199</s></p>
+                  <button
+                    class="btn btn-primary"
+                    onclick="addToCart('Gabapin', 187, 199)"
+                  >
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Add more columns for more medicines -->
+          </div>
+        </div>
+        <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="cartModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <img class="imgg" src="assets/images/common/logo.png" alt="">
+            <h5 class="modal-title" id="cartModalLabel">Medicine Cart</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="cartModalBody">
+            <!-- Cart items will be added here -->
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="row">
+                <p id="original-price"></p>
+                <p id="savings"></p>
+                <p id="coupon" style="display: none;"></p>
+                <p>Delivery Charges: ₹15</p>
+                <p id="total"></p>
+              
+                <input type="text" id="coupon-input" placeholder="Enter coupon code" />
+                <button type="button" class="btn btn-secondary" onclick="applyCoupon()">
+                  Apply
+                </button>
+                <a href="pay.html" class="btn btn-primary" id="proceed-payment" style="display: none;">Proceed to payment</a>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+ var cart = {};
+var savings = 0;
+var deliveryCharges = 15;
+var maxQuantity = 10;
+
+function addToCart(name, price, originalPrice) {
+  if (cart[name]) {
+    if (cart[name].quantity < maxQuantity) {
+      cart[name].quantity++;
+      savings += originalPrice - price;
+    } else {
+      alert("Maximum Quantity Reached");
+    }
+  } else {
+    cart[name] = { price: price, originalPrice: originalPrice, quantity: 1 };
+    savings += originalPrice - price;
+  }
+  updateCartCount();
+}
+
+function updateCartCount() {
+  var count = 0;
+  for (var item in cart) {
+    count += cart[item].quantity;
+  }
+  document.getElementById("cart-count").innerText = count;
+}
+
+function showCart() {
+  var cartModalBody = document.getElementById("cartModalBody");
+  cartModalBody.innerHTML = "";
+  var total = 0;
+  var originalTotal = 0;
+  for (var item in cart) {
+    var html = "<div id='" + item + "' class='row'>";
+    html += "<div class='col'>" + item + " (₹" + cart[item].price + ")</div>";
+    html += "<div class='col'><button class='btn btn-secondary' onclick='decreaseQuantity(\"" + item + "\")'>-</button></div>";
+    html += "<div class='col'>" + cart[item].quantity + "</div>";
+    html += "<div class='col'><button class='btn btn-secondary' onclick='increaseQuantity(\"" + item + "\")'>+</button></div>";
+    html += "<div class='col'><button class='btn btn-danger' onclick='removeItem(\"" + item + "\")'>X</button></div>";
+    html += "</div>";
+    cartModalBody.innerHTML += html;
+    total += cart[item].price * cart[item].quantity;
+    originalTotal += cart[item].originalPrice * cart[item].quantity;
+  }
+
+  if (Object.keys(cart).length === 0) {
+    cartModalBody.innerHTML = "Empty Cart. Add product in the cart";
+    document.getElementById("proceed-payment").style.display = "none";
+  } else {
+    document.getElementById("proceed-payment").style.display = "block";
+  }
+
+  document.getElementById("total").innerText = "Total: ₹" + (total + deliveryCharges);
+  document.getElementById("original-price").innerText = "Original Price: ₹" + originalTotal;
+  document.getElementById("savings").innerText = "Saved: ₹" + savings;
+  $("#cartModal").modal("show");
+}
+
+function decreaseQuantity(item) {
+  if (cart[item].quantity > 1) {
+    cart[item].quantity--;
+    savings -= cart[item].originalPrice - cart[item].price;
+  } else {
+    removeItem(item);
+  }
+  showCart();
+}
+
+function increaseQuantity(item) {
+  if (cart[item].quantity < maxQuantity) {
+    cart[item].quantity++;
+    savings += cart[item].originalPrice - cart[item].price;
+  } else {
+    alert("Maximum Quantity Reached");
+  }
+  showCart();
+}
+
+function removeItem(item) {
+  savings -= (cart[item].originalPrice - cart[item].price) * cart[item].quantity;
+  delete cart[item];
+  showCart();
+}
+
+function applyCoupon() {
+  var coupon = document.getElementById("coupon-input").value;
+  var discount = 0;
+  var message = "";
+
+  if (coupon === "pharmaplus") {
+    discount = 50;
+    message = "Coupon applied. You saved ₹" + discount;
+    document.getElementById("coupon").style.display = "block";
+  } else {
+    message = "Invalid coupon";
+    document.getElementById("coupon").style.display = "none";
+    alert(message);
+  }
+  var total = 0;
+  for (var item in cart) {
+    total += cart[item].price * cart[item].quantity;
+  }
+  total -= discount;
+  total += deliveryCharges;
+  document.getElementById("total").innerText = "Total: ₹" + total;
+  document.getElementById("savings").innerText = "Saved: ₹" + savings;
+  document.getElementById("coupon").innerText = "Coupon: ₹" + discount;
+  $("#cartModal").modal("show");
+}
+
+// Call showCart when the cart icon is clicked
+document.getElementById("cart-icon").addEventListener("click", showCart);
+
+
+    </script>
+  </body>
+</html>

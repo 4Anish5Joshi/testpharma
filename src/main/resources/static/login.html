@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharma Plus Login</title>
+
+    <link rel="shortcut icon" href="assets/images/common/fav.png" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #29695a;
+      }
+      .container {
+        text-align: center;
+        border: 1px solid #ccc;
+        padding: 20px;
+        max-width: 80%;
+        width: 400px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 7px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      h4 {
+        padding: 15px 0 12px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html">
+        <img src="assets/images/common/logo.png" alt="Logo" class="logo" />
+      </a>
+      <form id="loginForm">
+        <h4>Login</h4>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+        /><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        /><br />
+        <input type="submit" value="Login" class="btn-success" />
+      </form>
+      <p>No account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </body>
+</html>
